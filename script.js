@@ -104,15 +104,15 @@ const cidades = [
 ];
 
 // Adiciona marcadores para cidades listadas
-// Função para definir cor conforme a população (cores mais visíveis)
+// Função com cores bem vivas e distintas
 function getCorPorPopulacao(populacao) {
-    if (populacao <= 5000) return "#fdd0a2";        // laranja claro e visível
-    else if (populacao <= 15000) return "#fdae6b";  // laranja médio
-    else if (populacao <= 30000) return "#fd8d3c";  // laranja avermelhado
-    else return "#e6550d";                          // vermelho escuro
+    if (populacao <= 5000) return "#FFA500";        // Laranja
+    else if (populacao <= 15000) return "#FF0000";  // Vermelho
+    else if (populacao <= 30000) return "#1E90FF";  // Azul
+    else return "#FF00FF";                          // Rosa forte
 }
 
-// Adiciona marcadores para cidades
+// Adiciona marcadores com as novas cores
 cidades.forEach(cidade => {
     const pop = parseInt(cidade.pop.replace(/[^\d]/g, '')); // remove pontos/virgulas
     const cor = getCorPorPopulacao(pop);
@@ -132,16 +132,16 @@ cidades.forEach(cidade => {
     );
 });
 
-// Adiciona legenda com as cores novas
+// Legenda com as cores vivas
 const legenda = L.control({ position: "bottomright" });
 
 legenda.onAdd = function () {
     const div = L.DomUtil.create("div", "info legend");
     const faixas = [
-        { limite: "até 5.000", cor: "#fdd0a2" },
-        { limite: "5.001 – 15.000", cor: "#fdae6b" },
-        { limite: "15.001 – 30.000", cor: "#fd8d3c" },
-        { limite: "30.001 – 100.000", cor: "#e6550d" }
+        { limite: "até 5.000", cor: "#FFA500" },
+        { limite: "5.001 – 15.000", cor: "#FF0000" },
+        { limite: "15.001 – 30.000", cor: "#1E90FF" },
+        { limite: "30.001 – 100.000", cor: "#FF00FF" }
     ];
 
     div.innerHTML += "<h4>População</h4>";
