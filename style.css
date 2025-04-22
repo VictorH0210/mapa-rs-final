@@ -1,0 +1,44 @@
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f9f9f9;
+  padding: 20px;
+}
+
+.map-container {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+}
+
+.tooltip {
+  position: absolute;
+  background: rgba(0,0,0,0.8);
+  color: #fff;
+  padding: 8px;
+  border-radius: 5px;
+  pointer-events: none;
+  font-size: 14px;
+}
+
+.legenda {
+  margin-top: 20px;
+}
+
+.legenda div {
+  margin: 5px 0;
+}
+
+.faixa {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.faixa1 { background: #cce5df; }
+.faixa2 { background: #91d1bd; }
+.faixa3 { background: #4daf91; }
+.faixa4 { background: #1e7e62; }
+.faixa-ijui { background: #f39c12; }

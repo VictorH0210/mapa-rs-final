@@ -1,0 +1,25 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Mapa Interativo - Noroeste RS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Mapa Interativo - Noroeste do Rio Grande do Sul</h1>
+  <div class="map-container">
+    <object id="mapa-svg" type="image/svg+xml" data="mapa.svg"></object>
+    <div id="tooltip" class="tooltip" style="display: none;"></div>
+  </div>
+  <div class="legenda">
+    <h3>Legenda por população</h3>
+    <div><span class="faixa faixa1"></span> Até 5.000 hab.</div>
+    <div><span class="faixa faixa2"></span> Até 15.000 hab.</div>
+    <div><span class="faixa faixa3"></span> Até 30.000 hab.</div>
+    <div><span class="faixa faixa4"></span> Até 100.000 hab.</div>
+    <div><span class="faixa faixa-ijui"></span> Ijuí</div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

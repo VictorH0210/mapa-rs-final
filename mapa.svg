@@ -1,0 +1,12 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600">
+  <style>
+    .cidade { cursor: pointer; stroke: #000; stroke-width: 0.5; }
+  </style>
+  <rect x="100" y="100" width="100" height="100" class="cidade" fill="#91d1bd"
+    data-cidade="Santa Rosa" data-info="Santa Rosa<br>Pop: 73.575<br>IDH: 0.776<br>PIB pc: R$ 39.250<br>Distância até Ijuí: 72 km"/>
+  <rect x="250" y="150" width="100" height="100" class="cidade" fill="#4daf91"
+    data-cidade="Horizontina" data-info="Horizontina<br>Pop: 19.231<br>IDH: 0.782<br>PIB pc: R$ 48.000<br>Distância até Ijuí: 98 km"/>
+  <rect x="400" y="200" width="100" height="100" class="cidade" fill="#f39c12"
+    data-cidade="Ijuí" data-info="Ijuí<br>Pop: 83.764<br>IDH: 0.781<br>PIB pc: R$ 46.000<br>Distância até Ijuí: 0 km"/>
+</svg>
