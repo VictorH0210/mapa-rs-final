@@ -1,27 +1,46 @@
+const map = L.map('map').setView([-28.5, -53.5], 8);
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors'
+}).addTo(map);
 
-document.addEventListener("DOMContentLoaded", () => {
-  const tooltip = document.getElementById("tooltip");
-  const svgObject = document.getElementById("mapa-svg");
+// Exemplo com poucas cidades para representar
+const cidades = [
+    {
+        nome: "Santa Rosa",
+        pop: "73.575",
+        idh: "0.776",
+        pib: "48.000",
+        coord: [-27.8706, -54.4796]
+    },
+    {
+        nome: "Ijuí",
+        pop: "83.764",
+        idh: "0.776",
+        pib: "52.000",
+        coord: [-28.3881, -53.9202]
+    },
+    {
+        nome: "Cruz Alta",
+        pop: "59.003",
+        idh: "0.765",
+        pib: "42.000",
+        coord: [-28.645, -53.6056]
+    }
+];
 
-  svgObject.addEventListener("load", () => {
-    const svgDoc = svgObject.contentDocument;
-    const cities = svgDoc.querySelectorAll("[data-cidade]");
-
-    cities.forEach(cidade => {
-      cidade.addEventListener("mouseover", (e) => {
-        const info = cidade.getAttribute("data-info");
-        tooltip.innerHTML = info;
-        tooltip.style.display = "block";
-      });
-
-      cidade.addEventListener("mousemove", (e) => {
-        tooltip.style.top = (e.pageY + 10) + "px";
-        tooltip.style.left = (e.pageX + 10) + "px";
-      });
-
-      cidade.addEventListener("mouseout", () => {
-        tooltip.style.display = "none";
-      });
-    });
-  });
+// Adiciona marcadores para cidades listadas
+cidades.forEach(cidade => {
+    const marker = L.circleMarker(cidade.coord, {
+        radius: 8,
+        fillColor: "#2b83ba",
+        color: "#fff",
+        weight: 1,
+        opacity: 1,
+        fillOpacity: 0.9
+    }).addTo(map);
+    
+    marker.bindTooltip(
+        `<strong>${cidade.nome}</strong><br>População: ${cidade.pop}<br>IDH: ${cidade.idh}<br>PIB per capita: R$ ${cidade.pib}`,
+        { permanent: false, direction: "top" }
+    );
 });
