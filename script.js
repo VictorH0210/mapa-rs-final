@@ -104,17 +104,17 @@ const cidades = [
 ];
 
 // Adiciona marcadores para cidades listadas
-// Função para definir cor conforme a população (laranja → vermelho)
+// Função para definir cor conforme a população (cores mais visíveis)
 function getCorPorPopulacao(populacao) {
-    if (populacao <= 5000) return "#fee5d9";        // laranja claro
-    else if (populacao <= 15000) return "#fcae91";  // laranja médio
-    else if (populacao <= 30000) return "#fb6a4a";  // vermelho claro
-    else return "#cb181d";                          // vermelho escuro
+    if (populacao <= 5000) return "#fdd0a2";        // laranja claro e visível
+    else if (populacao <= 15000) return "#fdae6b";  // laranja médio
+    else if (populacao <= 30000) return "#fd8d3c";  // laranja avermelhado
+    else return "#e6550d";                          // vermelho escuro
 }
 
-// Adiciona marcadores com cores conforme a população
+// Adiciona marcadores para cidades
 cidades.forEach(cidade => {
-    const pop = parseInt(cidade.pop.replace(/[^\d]/g, ''));
+    const pop = parseInt(cidade.pop.replace(/[^\d]/g, '')); // remove pontos/virgulas
     const cor = getCorPorPopulacao(pop);
 
     const marker = L.circleMarker(cidade.coord, {
@@ -125,23 +125,23 @@ cidades.forEach(cidade => {
         opacity: 1,
         fillOpacity: 0.9
     }).addTo(map);
-    
+
     marker.bindTooltip(
         `<strong>${cidade.nome}</strong><br>População: ${cidade.pop}<br>IDH: ${cidade.idh}<br>PIB per capita: R$ ${cidade.pib}`,
         { permanent: false, direction: "top" }
     );
 });
 
-// Adiciona legenda ao mapa com as faixas de cor
+// Adiciona legenda com as cores novas
 const legenda = L.control({ position: "bottomright" });
 
 legenda.onAdd = function () {
     const div = L.DomUtil.create("div", "info legend");
     const faixas = [
-        { limite: "até 5.000", cor: "#fee5d9" },
-        { limite: "5.001 – 15.000", cor: "#fcae91" },
-        { limite: "15.001 – 30.000", cor: "#fb6a4a" },
-        { limite: "30.001 – 100.000", cor: "#cb181d" }
+        { limite: "até 5.000", cor: "#fdd0a2" },
+        { limite: "5.001 – 15.000", cor: "#fdae6b" },
+        { limite: "15.001 – 30.000", cor: "#fd8d3c" },
+        { limite: "30.001 – 100.000", cor: "#e6550d" }
     ];
 
     div.innerHTML += "<h4>População</h4>";
