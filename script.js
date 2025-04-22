@@ -104,15 +104,15 @@ const cidades = [
 ];
 
 // Adiciona marcadores para cidades listadas
-// Função para definir cor conforme a população
+// Função para definir cor conforme a população (laranja → vermelho)
 function getCorPorPopulacao(populacao) {
-    if (populacao <= 5000) return "#a1d99b";        // verde claro
-    else if (populacao <= 15000) return "#74c476";  // verde médio claro
-    else if (populacao <= 30000) return "#238b45";  // verde médio escuro
-    else return "#005a32";                          // verde escuro
+    if (populacao <= 5000) return "#fee5d9";        // laranja claro
+    else if (populacao <= 15000) return "#fcae91";  // laranja médio
+    else if (populacao <= 30000) return "#fb6a4a";  // vermelho claro
+    else return "#cb181d";                          // vermelho escuro
 }
 
-// Adiciona marcadores com cores conforme população
+// Adiciona marcadores com cores conforme a população
 cidades.forEach(cidade => {
     const pop = parseInt(cidade.pop.replace(/[^\d]/g, ''));
     const cor = getCorPorPopulacao(pop);
@@ -132,16 +132,16 @@ cidades.forEach(cidade => {
     );
 });
 
-// Adiciona legenda com faixas de população
+// Adiciona legenda ao mapa com as faixas de cor
 const legenda = L.control({ position: "bottomright" });
 
 legenda.onAdd = function () {
     const div = L.DomUtil.create("div", "info legend");
     const faixas = [
-        { limite: "até 5.000", cor: "#a1d99b" },
-        { limite: "5.001 – 15.000", cor: "#74c476" },
-        { limite: "15.001 – 30.000", cor: "#238b45" },
-        { limite: "30.001 – 100.000", cor: "#005a32" }
+        { limite: "até 5.000", cor: "#fee5d9" },
+        { limite: "5.001 – 15.000", cor: "#fcae91" },
+        { limite: "15.001 – 30.000", cor: "#fb6a4a" },
+        { limite: "30.001 – 100.000", cor: "#cb181d" }
     ];
 
     div.innerHTML += "<h4>População</h4>";
