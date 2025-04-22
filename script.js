@@ -104,10 +104,22 @@ const cidades = [
 ];
 
 // Adiciona marcadores para cidades listadas
+// Função para definir cor conforme a população
+function getCorPorPopulacao(populacao) {
+    if (populacao <= 5000) return "#a1d99b";        // verde claro
+    else if (populacao <= 15000) return "#74c476";  // verde médio claro
+    else if (populacao <= 30000) return "#238b45";  // verde médio escuro
+    else return "#005a32";                          // verde escuro
+}
+
+// Adiciona marcadores com cores conforme população
 cidades.forEach(cidade => {
+    const pop = parseInt(cidade.pop.replace(/[^\d]/g, ''));
+    const cor = getCorPorPopulacao(pop);
+
     const marker = L.circleMarker(cidade.coord, {
         radius: 8,
-        fillColor: "#2b83ba",
+        fillColor: cor,
         color: "#fff",
         weight: 1,
         opacity: 1,
@@ -119,3 +131,27 @@ cidades.forEach(cidade => {
         { permanent: false, direction: "top" }
     );
 });
+
+// Adiciona legenda com faixas de população
+const legenda = L.control({ position: "bottomright" });
+
+legenda.onAdd = function () {
+    const div = L.DomUtil.create("div", "info legend");
+    const faixas = [
+        { limite: "até 5.000", cor: "#a1d99b" },
+        { limite: "5.001 – 15.000", cor: "#74c476" },
+        { limite: "15.001 – 30.000", cor: "#238b45" },
+        { limite: "30.001 – 100.000", cor: "#005a32" }
+    ];
+
+    div.innerHTML += "<h4>População</h4>";
+    faixas.forEach(faixa => {
+        div.innerHTML +=
+            `<i style="background:${faixa.cor}; width: 18px; height: 18px; float: left; margin-right: 8px; opacity: 0.9;"></i>` +
+            `${faixa.limite}<br>`;
+    });
+
+    return div;
+};
+
+legenda.addTo(map);
