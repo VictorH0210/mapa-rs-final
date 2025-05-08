@@ -9,7 +9,7 @@ const cidades = [
   { nome: "Ijuí", pop: "83.764", idh: "0.776", pib: "52.000", coord: [-28.3881, -53.9202] },
   { nome: "Cruz Alta", pop: "59.003", idh: "0.765", pib: "42.000", coord: [-28.645, -53.6056] },
   { nome: "Cândido Godói", pop: "6.127", idh: "0.742", pib: "38.000,00", coord: [-27.9519, -54.7519] },
-  { nome: "Santo Cristo", pop: "15.320", idh: "0.738", pib: "55.305,62", coord: [-27.8264, -54.6621] },
+  { nome: "Santo Cristo", pop: "15.320", idh: "0.738", pib: "55.305,62", colportor: "Christiel", coord: [-27.8264, -54.6621] },
   { nome: "Porto Lucena", pop: "4.360", idh: "0.693", pib: "30.053,37", coord: [-27.8561, -55.0097] },
   { nome: "Porto Vera Cruz", pop: "1.800", idh: "0.700", pib: "28.000,00", coord: [-27.7383, -54.8997] },
   { nome: "Alecrim", pop: "6.500", idh: "0.710", pib: "35.000,00", coord: [-27.6578, -54.7644] },
@@ -38,7 +38,7 @@ const cidades = [
   { nome: "Giruá", pop: "16.282", idh: "0.721", pib: "76.479,16", coord: [-28.0292, -54.3514] },
   { nome: "Catuípe", pop: "9.483", idh: "0.739", pib: "73.932,28", coord: [-28.255, -54.0139] },
   { nome: "Coronel Barros", pop: "2.822", idh: "0.744", pib: "89.696,56", coord: [-28.383, -54.066] },
-  { nome: "Augusto Pestana", pop: "7.490", idh: "0.739", pib: "77.033,28", coord: [-28.5183, -53.9883] },
+  { nome: "Augusto Pestana", pop: "7.490", idh: "0.739", pib: "77.033,28", colportor: "Gabriel Melo", coord: [-28.5183, -53.9883] },
   { nome: "Jóia", pop: "7.184", idh: "0.686", pib: "50.311,63",  coord: [-28.6467, -54.1222] },
   { nome: "Boa Vista do Cadeado", pop: "2.466", idh: "0.700", pib: "190.085,27", coord: [-28.6069, -53.815] },
   { nome: "Pejuçara", pop: "3.800", idh: "0.750", pib: "28.000,00", coord: [-28.4244, -53.6575] },
@@ -127,7 +127,7 @@ cidades.forEach(cidade => {
     }).addTo(map);
 
     marker.bindTooltip(
-        `<strong>${cidade.nome}</strong><br>População: ${cidade.pop}<br>IDH: ${cidade.idh}<br>PIB per capita: R$ ${cidade.pib}`,
+        `<strong>${cidade.nome}</strong><br>População: ${cidade.pop}<br>IDH: ${cidade.idh}<br>PIB per capita: R$ ${cidade.pib}<br>Colportor: R$ ${cidade.colportor}`,
         { permanent: false, direction: "top" }
     );
 });
