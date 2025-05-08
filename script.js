@@ -127,7 +127,7 @@ cidades.forEach(cidade => {
     }).addTo(map);
 
     marker.bindTooltip(
-        `<strong>${cidade.nome}</strong><br>População: ${cidade.pop}<br>IDH: ${cidade.idh}<br>PIB per capita: R$ ${cidade.pib}<br>Colportor: ${cidade.colportor}<br>Distância Santo Ângelo: KM ${cidade.distancia}`,
+        `<strong>${cidade.nome}</strong><br>População: ${cidade.pop}<br>IDH: ${cidade.idh}<br>PIB per capita: R$ ${cidade.pib}<br>Colportor: ${cidade.colportor}<br>Distância Santo Ângelo: ${cidade.distancia} Km`,
         { permanent: false, direction: "top" }
     );
 });
