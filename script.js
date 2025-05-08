@@ -9,7 +9,7 @@ const cidades = [
   { nome: "Ijuí", pop: "83.764", idh: "0.776", pib: "52.000", coord: [-28.3881, -53.9202] },
   { nome: "Cruz Alta", pop: "59.003", idh: "0.765", pib: "42.000", coord: [-28.645, -53.6056] },
   { nome: "Cândido Godói", pop: "6.127", idh: "0.742", pib: "38.000,00", coord: [-27.9519, -54.7519] },
-  { nome: "Santo Cristo", pop: "15.320", idh: "0.738", pib: "55.305,62", colportor: "Christiel", coord: [-27.8264, -54.6621] },
+  { nome: "Santo Cristo", pop: "15.320", idh: "0.738", pib: "55.305,62", distancia: "75", colportor: "Christiel", coord: [-27.8264, -54.6621] },
   { nome: "Porto Lucena", pop: "4.360", idh: "0.693", pib: "30.053,37", coord: [-27.8561, -55.0097] },
   { nome: "Porto Vera Cruz", pop: "1.800", idh: "0.700", pib: "28.000,00", coord: [-27.7383, -54.8997] },
   { nome: "Alecrim", pop: "6.500", idh: "0.710", pib: "35.000,00", coord: [-27.6578, -54.7644] },
@@ -127,7 +127,7 @@ cidades.forEach(cidade => {
     }).addTo(map);
 
     marker.bindTooltip(
-        `<strong>${cidade.nome}</strong><br>População: ${cidade.pop}<br>IDH: ${cidade.idh}<br>PIB per capita: R$ ${cidade.pib}<br>Colportor: R$ ${cidade.colportor}`,
+        `<strong>${cidade.nome}</strong><br>População: ${cidade.pop}<br>IDH: ${cidade.idh}<br>PIB per capita: R$ ${cidade.pib}<br>Colportor: ${cidade.colportor}<br>Distância Santo Ângelo: ${cidade.distancia}`,
         { permanent: false, direction: "top" }
     );
 });
