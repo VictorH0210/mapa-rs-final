@@ -38,7 +38,7 @@ const cidades = [
   { nome: "Giruá", pop: "16.282", idh: "0.721", pib: "76.479,16", coord: [-28.0292, -54.3514] },
   { nome: "Catuípe", pop: "9.483", idh: "0.739", pib: "73.932,28", coord: [-28.255, -54.0139] },
   { nome: "Coronel Barros", pop: "2.822", idh: "0.744", pib: "89.696,56", coord: [-28.383, -54.066] },
-  { nome: "Augusto Pestana", pop: "7.490", idh: "0.739", pib: "77.033,28", colportor: "Gabriel Melo", coord: [-28.5183, -53.9883] },
+  { nome: "Augusto Pestana", pop: "7.490", idh: "0.739", pib: "77.033,28", distancia: "58", colportor: "Gabriel Melo", coord: [-28.5183, -53.9883] },
   { nome: "Jóia", pop: "7.184", idh: "0.686", pib: "50.311,63",  coord: [-28.6467, -54.1222] },
   { nome: "Boa Vista do Cadeado", pop: "2.466", idh: "0.700", pib: "190.085,27", coord: [-28.6069, -53.815] },
   { nome: "Pejuçara", pop: "3.800", idh: "0.750", pib: "28.000,00", coord: [-28.4244, -53.6575] },
